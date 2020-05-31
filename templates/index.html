@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" />
+    <script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"></script>
+
+    <title>Employee Details</title>
+</head>
+
+<body>
+    <h1>Employee Data</h1>
+    <button onclick="exportToExcel('employeedetails')">Export Table Data To Excel File</button>
+    <table id="employeedetails">
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Employee Age</th>
+            <th>Profile Image</th>
+        </tr>
+
+        {% for d in data %}
+
+        <tr>
+            <td>
+                {{d["id"]}}
+            </td>
+            <td>
+                {{d["employee_name"]}}
+            </td>
+            <td>
+                {{d["employee_salary"]}}
+
+            </td>
+            <td>
+                {{d["employee_age"]}}
+
+            </td>
+            <td>
+                {{d["profile_image"]}}
+
+            </td>
+            {%endfor%}
+        </tr>
+    </table>
+
+    </br></br></br></br></br>
+
+
+</body>
+
+</html>
